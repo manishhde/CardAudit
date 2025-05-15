@@ -86,9 +86,9 @@ def check_b3(cc):
 	with open("proxies.txt","r") as f:
 		p = random.choice((f.read().splitlines()))
 	proxy = format_proxy(p)
-	with open("accounta.txt","r") as f:
+	with open("accounts.txt","r") as f:
 		username = random.choice((f.read().splitlines()))
-	client = httpx.AsyncClient(timeout=30,proxy=f"http://{proxy}")
+	client = httpx.AsyncClient(timeout=30,proxies=f"http://{proxy}")
 	url = "https://www.bebebrands.com"
 	loop = asyncio.new_event_loop()
 	asyncio.set_event_loop(loop)
